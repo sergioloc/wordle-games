@@ -8,8 +8,6 @@ class GetGamesUseCase @Inject constructor(
     private val repository: GamesRepository
 ) {
 
-    suspend operator fun invoke(): List<Game> {
-        return repository.getGames()
-    }
+    operator fun invoke(): List<Game> = repository.getGames()
 
 }

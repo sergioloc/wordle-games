@@ -1,10 +1,11 @@
 package com.slc.wordlegames.data
 
 import com.slc.wordlegames.domain.model.Game
+import javax.inject.Inject
 
-class GamesRepository {
+class GamesRepository @Inject constructor() {
 
-    suspend fun getGames(): List<Game> {
+    fun getGames(): List<Game> {
         return listOf(
             Game(name = "Wordle", url = "https://wordle.danielfrg.com/"),
             Game(name = "Worldle", url = "https://worldle.teuteuf.fr/"),
