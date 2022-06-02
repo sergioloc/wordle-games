@@ -1,15 +1,15 @@
 package com.slc.wordlegames.data
 
-import com.slc.wordlegames.data.model.GameModel
+import com.slc.wordlegames.domain.model.Game
 
 class GamesRepository {
 
-    suspend fun getGames(): List<GameModel> {
+    suspend fun getGames(): List<Game> {
         return listOf(
-            GameModel(name = "Wordle", url = "https://wordle.danielfrg.com/"),
-            GameModel(name = "Worldle", url = "https://worldle.teuteuf.fr/"),
-            GameModel(name = "Heardle", url = "https://www.heardle.app/"),
-            GameModel(name = "Framed", url = "https://framed.wtf/")
+            Game(name = "Wordle", url = "https://wordle.danielfrg.com/"),
+            Game(name = "Worldle", url = "https://worldle.teuteuf.fr/"),
+            Game(name = "Heardle", url = "https://www.heardle.app/"),
+            Game(name = "Framed", url = "https://framed.wtf/")
         )
     }
 

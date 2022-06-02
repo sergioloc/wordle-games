@@ -1,11 +1,15 @@
 package com.slc.wordlegames.domain.usecase
 
+import com.slc.wordlegames.data.GamesRepository
 import com.slc.wordlegames.domain.model.Game
+import javax.inject.Inject
 
-class GetGamesUseCase {
+class GetGamesUseCase @Inject constructor(
+    private val repository: GamesRepository
+) {
 
     suspend operator fun invoke(): List<Game> {
-
+        return repository.getGames()
     }
 
 }
