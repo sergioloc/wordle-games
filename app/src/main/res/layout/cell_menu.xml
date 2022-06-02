@@ -24,9 +24,11 @@
             android:id="@+id/ivIcon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="@null"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
             android:background="@color/gray"
-            android:scaleType="centerCrop"/>
+            app:tint="@color/white"
+            android:contentDescription="@null"/>
 
     </androidx.cardview.widget.CardView>
 

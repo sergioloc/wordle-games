@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.slc.wordlegames.R
 import com.slc.wordlegames.domain.model.Game
@@ -21,11 +22,12 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
         val g = games[position]
 
         holder.tvName.text = g.name
+        holder.ivIcon.setImageDrawable(ContextCompat.getDrawable(holder.ivIcon.context, g.image))
 
     }
 
     class UserViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.cell_game, parent, false)) {
+        RecyclerView.ViewHolder(inflater.inflate(R.layout.cell_menu, parent, false)) {
 
         var root: ConstraintLayout = itemView.findViewById(R.id.card)
         var ivIcon: ImageView = itemView.findViewById(R.id.ivIcon)

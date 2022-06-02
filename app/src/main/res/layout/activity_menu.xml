@@ -12,6 +12,6 @@
         android:id="@+id/rvGames"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/cell_game"/>
+        tools:listitem="@layout/cell_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
