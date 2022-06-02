@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos/WordleGames/app/src/main/res/drawable/chip_ripple_primary.xml" value="0.204" />
+        <entry key="..\:/Proyectos/WordleGames/app/src/main/res/layout/activity_menu.xml" value="0.3671875" />
         <entry key="..\:/Proyectos/WordleGames/app/src/main/res/layout/activity_web_view.xml" value="0.3671875" />
+        <entry key="..\:/Proyectos/WordleGames/app/src/main/res/layout/cell_game.xml" value="0.3671875" />
       </map>
     </option>
   </component>
