@@ -24,6 +24,11 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
         holder.tvName.text = g.name
         holder.ivIcon.setImageDrawable(ContextCompat.getDrawable(holder.ivIcon.context, g.image))
 
+        //TODO: on single click
+        holder.root.setOnClickListener {
+            listener.onClickGame(g)
+        }
+
     }
 
     class UserViewHolder(inflater: LayoutInflater, parent: ViewGroup) :

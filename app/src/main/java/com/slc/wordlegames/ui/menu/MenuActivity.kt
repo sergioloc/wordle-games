@@ -1,11 +1,13 @@
 package com.slc.wordlegames.ui.menu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.databinding.ActivityMenuBinding
 import com.slc.wordlegames.domain.model.Game
+import com.slc.wordlegames.ui.webview.WebViewActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +20,6 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //startActivity(Intent(this, WebViewActivity::class.java))
 
         initView()
         initObservers()
@@ -38,6 +39,8 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     }
 
     override fun onClickGame(game: Game) {
-
+        val i = Intent(this, WebViewActivity::class.java)
+        i.putExtra("url", game.url)
+        startActivity(i)
     }
 }
