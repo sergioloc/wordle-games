@@ -1,4 +1,4 @@
-package com.slc.wordlegames.ui.main
+package com.slc.wordlegames.ui.menu
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,10 @@ import android.os.Bundle
 import com.slc.wordlegames.R
 import com.slc.wordlegames.ui.webview.WebViewActivity
 
-class MainActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_menu)
         startActivity(Intent(this, WebViewActivity::class.java))
     }
 }
