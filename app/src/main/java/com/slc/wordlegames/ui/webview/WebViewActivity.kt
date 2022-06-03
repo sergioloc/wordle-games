@@ -28,7 +28,10 @@ class WebViewActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         ConfirmationDialog(this).apply {
-            setOnConfirmationClickListener {
+            setOnAcceptClickListener {
+                super.onBackPressed()
+            }
+            setOnCancelClickListener {
                 super.onBackPressed()
             }
             show()

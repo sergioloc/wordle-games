@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import com.slc.wordlegames.databinding.DialogConfirmationBinding
 
-/** Shows a simple dialog with Yes/No buttons **/
+/** Shows a simple dialog with Accept/Cancel buttons **/
 
 class ConfirmationDialog constructor(val context: Context): CustomDialog() {
 
@@ -15,7 +15,7 @@ class ConfirmationDialog constructor(val context: Context): CustomDialog() {
     init {
         setView(context, binding.root)
 
-        binding.btnNo.setOnClickListener { dialog.dismiss() }
+        binding.ivClose.setOnClickListener { dialog.dismiss() }
     }
 
     /** SETTERS **/
@@ -28,8 +28,15 @@ class ConfirmationDialog constructor(val context: Context): CustomDialog() {
         binding.tvMessage.text = message
     }
 
-    fun setOnConfirmationClickListener(onClickListener: () -> Unit) {
-        binding.btnYes.setOnClickListener {
+    fun setOnAcceptClickListener(onClickListener: () -> Unit) {
+        binding.btnAccept.setOnClickListener {
+            onClickListener()
+            dialog.dismiss()
+        }
+    }
+
+    fun setOnCancelClickListener(onClickListener: () -> Unit) {
+        binding.btnCancel.setOnClickListener {
             onClickListener()
             dialog.dismiss()
         }
