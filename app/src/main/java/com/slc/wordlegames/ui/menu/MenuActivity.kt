@@ -3,6 +3,7 @@ package com.slc.wordlegames.ui.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.databinding.ActivityMenuBinding
@@ -43,4 +44,9 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         i.putExtra("url", game.url)
         startActivity(i)
     }
+
+    override fun onClickOptions(game: Game) {
+        Toast.makeText(this, game.name, Toast.LENGTH_SHORT).show()
+    }
+
 }

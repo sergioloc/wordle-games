@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class WebViewActivity : AppCompatActivity() {
 

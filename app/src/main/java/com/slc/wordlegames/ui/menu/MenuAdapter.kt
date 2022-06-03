@@ -29,6 +29,11 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
             listener.onClickGame(g)
         }
 
+        //TODO: on single click
+        holder.ivMore.setOnClickListener {
+            listener.onClickOptions(g)
+        }
+
     }
 
     class UserViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -37,11 +42,13 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
         var root: ConstraintLayout = itemView.findViewById(R.id.card)
         var ivIcon: ImageView = itemView.findViewById(R.id.ivIcon)
         var tvName: TextView = itemView.findViewById(R.id.tvName)
+        var ivMore: ImageView = itemView.findViewById(R.id.ivMore)
 
     }
 
     interface OnGameClickListener {
         fun onClickGame(game: Game)
+        fun onClickOptions(game: Game)
     }
 
 }
