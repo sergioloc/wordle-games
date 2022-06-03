@@ -22,6 +22,7 @@
         android:background="@drawable/chip_ripple_primary"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:textAllCaps="true"
         android:text="@string/app_name"/>
 

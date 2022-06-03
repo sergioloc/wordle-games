@@ -2,9 +2,13 @@ package com.slc.wordlegames.ui.webview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class WebViewActivity : AppCompatActivity() {
@@ -19,6 +23,7 @@ class WebViewActivity : AppCompatActivity() {
 
         initVariables()
         initView()
+        initListeners()
     }
 
     private fun initVariables() {
@@ -32,5 +37,14 @@ class WebViewActivity : AppCompatActivity() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.domStorageEnabled = true
         binding.webView.loadUrl(url)
+    }
+
+    private fun initListeners() {
+        binding.webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView, url: String) {
+                binding.loader.visibility = View.GONE
+                binding.webView.visibility = View.VISIBLE
+            }
+        }
     }
 }
