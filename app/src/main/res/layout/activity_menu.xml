@@ -8,10 +8,30 @@
     android:background="@color/grayDark"
     tools:context=".ui.menu.MenuActivity">
 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:paddingVertical="20dp"
+        android:gravity="center"
+        android:background="@drawable/chip_ripple_primary"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAllCaps="true"
+        android:text="@string/app_name"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGames"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
         tools:listitem="@layout/cell_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

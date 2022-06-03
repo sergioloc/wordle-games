@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="25dp"
         android:elevation="2dp"
         android:background="@drawable/chip_ripple_primary"
         android:id="@+id/card">
