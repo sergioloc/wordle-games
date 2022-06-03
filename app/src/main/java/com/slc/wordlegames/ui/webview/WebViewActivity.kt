@@ -1,10 +1,12 @@
 package com.slc.wordlegames.ui.webview
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class WebViewActivity : AppCompatActivity() {
@@ -27,7 +29,10 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun initView() {
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.domStorageEnabled = true
         binding.webView.loadUrl(url)
     }
 }
