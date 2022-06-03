@@ -7,6 +7,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
+import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +24,15 @@ class WebViewActivity : AppCompatActivity() {
         initVariables()
         initView()
         initListeners()
+    }
+
+    override fun onBackPressed() {
+        ConfirmationDialog(this).apply {
+            setOnConfirmationClickListener {
+                super.onBackPressed()
+            }
+            show()
+        }
     }
 
     private fun initVariables() {
