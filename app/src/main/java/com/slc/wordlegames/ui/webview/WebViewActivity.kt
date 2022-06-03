@@ -2,8 +2,6 @@ package com.slc.wordlegames.ui.webview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.webkit.WebChromeClient
-import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
