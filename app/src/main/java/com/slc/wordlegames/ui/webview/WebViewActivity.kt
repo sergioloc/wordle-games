@@ -1,6 +1,7 @@
 package com.slc.wordlegames.ui.webview
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -10,6 +11,7 @@ import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class WebViewActivity : AppCompatActivity() {
@@ -32,9 +34,13 @@ class WebViewActivity : AppCompatActivity() {
             setTitle(getString(R.string.did_you_win))
             setMessage(getString(R.string.save_result))
             setOnAcceptClickListener {
+                val i = Intent()
+                i.putExtra("result", "test")
+                setResult(RESULT_OK, i)
                 super.onBackPressed()
             }
             setOnCancelClickListener {
+                setResult(RESULT_CANCELED, Intent())
                 super.onBackPressed()
             }
             show()

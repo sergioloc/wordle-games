@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Wordle Games</string>
     <string name="did_you_win">Did you win?</string>
-    <string name="save_result">We will save your result to create an historical and metrics</string>
+    <string name="save_result">We will save your result to create an historical and metrics.</string>
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>
 </resources>

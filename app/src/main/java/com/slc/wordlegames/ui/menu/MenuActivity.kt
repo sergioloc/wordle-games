@@ -1,9 +1,11 @@
 package com.slc.wordlegames.ui.menu
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.databinding.ActivityMenuBinding
@@ -42,11 +44,20 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     override fun onClickGame(game: Game) {
         val i = Intent(this, WebViewActivity::class.java)
         i.putExtra("url", game.url)
-        startActivity(i)
+        activityResult.launch(i)
     }
 
     override fun onClickOptions(game: Game) {
         Toast.makeText(this, game.name, Toast.LENGTH_SHORT).show()
+    }
+
+    var activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val text = result.data?.getStringExtra("result")
+        }
+        else if (result.resultCode == Activity.RESULT_CANCELED) {
+            //
+        }
     }
 
 }
