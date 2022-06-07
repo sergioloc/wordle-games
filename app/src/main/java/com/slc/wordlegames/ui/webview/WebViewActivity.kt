@@ -70,9 +70,10 @@ class WebViewActivity : AppCompatActivity() {
     private fun showPasteDialog(context: Context, success: Boolean) {
         PasteDialog(context).apply {
             if (!success)
-                setTitle(R.string.next_time)
+                setTitle(getString(R.string.next_time))
             setOnAcceptClickListener {
                 val i = Intent()
+                i.putExtra("status", success)
                 i.putExtra("result", it)
                 setResult(RESULT_OK, i)
                 super.onBackPressed()

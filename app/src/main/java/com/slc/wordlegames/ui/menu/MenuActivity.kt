@@ -51,12 +51,10 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         Toast.makeText(this, game.name, Toast.LENGTH_SHORT).show()
     }
 
-    var activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val text = result.data?.getStringExtra("result")
-        }
-        else if (result.resultCode == Activity.RESULT_CANCELED) {
-            //
+    var activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            val status = it.data?.getBooleanExtra("status", false)
+            val result = it.data?.getStringExtra("result")
         }
     }
 
