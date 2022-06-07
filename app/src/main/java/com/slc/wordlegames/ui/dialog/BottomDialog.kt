@@ -18,19 +18,25 @@ class BottomDialog @JvmOverloads constructor(
     private var slideOutAnim: Animation
 
     init {
-        binding = DialogBottomBinding.inflate(LayoutInflater.from(context))
+        binding = DialogBottomBinding.inflate(LayoutInflater.from(context), this, false)
+        addView(binding.root)
 
         slideOutAnim = AnimationUtils.loadAnimation(context, R.anim.slide_out_bottom)
         slideOutAnim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(arg0: Animation) {}
             override fun onAnimationRepeat(arg0: Animation) {}
             override fun onAnimationEnd(arg0: Animation) {
-                binding.root.visibility = View.GONE
+                visibility = View.GONE
             }
         })
+
+        binding.ivGradient.setOnClickListener {
+            close()
+        }
     }
 
     fun open() {
+        visibility = View.VISIBLE
         binding.ivGradient.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in))
         binding.clFrame.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in_bottom))
     }
@@ -38,6 +44,20 @@ class BottomDialog @JvmOverloads constructor(
     private fun close() {
         binding.ivGradient.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_out))
         binding.clFrame.startAnimation(slideOutAnim)
+    }
+
+    fun setOnHistoryClickListener(onClickListener: () -> Unit) {
+        binding.tvHistory.setOnClickListener {
+            onClickListener()
+            close()
+        }
+    }
+
+    fun setOnHideClickListener(onClickListener: () -> Unit) {
+        binding.tvHide.setOnClickListener {
+            onClickListener()
+            close()
+        }
     }
 
 }

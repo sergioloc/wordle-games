@@ -47,9 +47,12 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     }
 
     override fun onClickOptions(game: Game) {
-        val i = Intent(this, HistoryActivity::class.java)
-        i.putExtra("type", game.id)
-        startActivity(i)
+        binding.bottomDialog.open()
+        binding.bottomDialog.setOnHistoryClickListener {
+            val i = Intent(this, HistoryActivity::class.java)
+            i.putExtra("type", game.id)
+            startActivity(i)
+        }
     }
 
 }

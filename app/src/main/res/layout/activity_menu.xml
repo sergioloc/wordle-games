@@ -35,4 +35,11 @@
         android:layout_marginTop="20dp"
         tools:listitem="@layout/cell_menu"/>
 
+    <com.slc.wordlegames.ui.dialog.BottomDialog
+        android:id="@+id/bottomDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
