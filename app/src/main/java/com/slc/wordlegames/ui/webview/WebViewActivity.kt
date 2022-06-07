@@ -6,6 +6,7 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +29,8 @@ class WebViewActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         ConfirmationDialog(this).apply {
+            setTitle(getString(R.string.did_you_win))
+            setMessage(getString(R.string.save_result))
             setOnAcceptClickListener {
                 super.onBackPressed()
             }
