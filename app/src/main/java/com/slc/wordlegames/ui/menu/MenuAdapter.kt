@@ -24,6 +24,12 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
         holder.tvName.text = g.name
         holder.ivIcon.setImageDrawable(ContextCompat.getDrawable(holder.ivIcon.context, g.image))
 
+        when (g.status) {
+            true -> holder.ivIcon.background = ContextCompat.getDrawable(holder.ivIcon.context, R.color.green)
+            false -> holder.ivIcon.background = ContextCompat.getDrawable(holder.ivIcon.context, R.color.red)
+            else -> holder.ivIcon.background = ContextCompat.getDrawable(holder.ivIcon.context, R.color.gray)
+        }
+
         //TODO: on single click
         holder.root.setOnClickListener {
             listener.onClickGame(g)

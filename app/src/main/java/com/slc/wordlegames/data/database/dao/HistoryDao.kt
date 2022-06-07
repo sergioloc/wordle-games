@@ -12,6 +12,9 @@ interface HistoryDao {
     @Query("SELECT * FROM history WHERE history.type == :type")
     suspend fun getHistory(type: Int): List<HistoryEntity>
 
+    @Query("SELECT * FROM history WHERE history.type == :type AND history.date == :date")
+    suspend fun getCurrentResult(type: Int, date: String): List<HistoryEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHistory(history: HistoryEntity)
 

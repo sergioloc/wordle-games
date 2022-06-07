@@ -26,6 +26,11 @@ class GamesRepository @Inject constructor(
         return response.map { it.toDomain() }
     }
 
+    suspend fun getCurrentResult(type: Int, date: String): List<History> {
+        val response = historyDao.getCurrentResult(type, date)
+        return response.map { it.toDomain() }
+    }
+
     suspend fun saveHistory(history: History) {
         historyDao.insertHistory(history.toData())
     }
