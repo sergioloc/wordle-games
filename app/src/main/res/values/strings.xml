@@ -9,4 +9,6 @@
     <string name="cancel">Cancel</string>
     <string name="paste">Paste</string>
     <string name="save">Save</string>
+    <string name="history">History</string>
+    <string name="hide">Hide</string>
 </resources>
