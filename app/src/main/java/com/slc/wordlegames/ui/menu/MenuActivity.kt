@@ -41,6 +41,11 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
                 binding.rvGames.adapter = MenuAdapter(list, this)
             }
         }
+        viewModel.hide.observe(this) {
+            it.onSuccess {
+                viewModel.getGames()
+            }
+        }
     }
 
     override fun onClickGame(game: Game) {
@@ -57,6 +62,9 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
             val i = Intent(this, HistoryActivity::class.java)
             i.putExtra("type", game.id)
             startActivity(i)
+        }
+        binding.bottomDialog.setOnHideClickListener {
+            viewModel.setGameHidden(game.id, false)
         }
     }
 

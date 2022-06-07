@@ -10,10 +10,10 @@ import com.slc.wordlegames.data.database.entity.HistoryEntity
 @Dao
 interface HiddenDao {
 
-    @Query("SELECT * FROM hidden WHERE hidden.visible == 1")
+    @Query("SELECT * FROM hidden WHERE hidden.visible == 0")
     suspend fun getHidden(): List<HiddenEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHiddenValue(hidden: HiddenEntity)
+    suspend fun insertHidden(hidden: HiddenEntity)
 
 }

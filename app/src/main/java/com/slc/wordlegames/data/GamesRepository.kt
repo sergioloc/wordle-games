@@ -3,6 +3,7 @@ package com.slc.wordlegames.data
 import com.slc.wordlegames.R
 import com.slc.wordlegames.data.database.dao.HiddenDao
 import com.slc.wordlegames.data.database.dao.HistoryDao
+import com.slc.wordlegames.data.database.entity.HiddenEntity
 import com.slc.wordlegames.domain.model.*
 import javax.inject.Inject
 
@@ -44,6 +45,10 @@ class GamesRepository @Inject constructor(
          for (item in response)
              result.add(item.id)
         return result
+    }
+
+    suspend fun setHidden(id: Int, visible: Boolean) {
+        hiddenDao.insertHidden(HiddenEntity(id, visible))
     }
 
 }
