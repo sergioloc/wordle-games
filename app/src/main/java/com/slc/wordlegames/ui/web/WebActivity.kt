@@ -51,6 +51,8 @@ class WebActivity : AppCompatActivity() {
     }
 
     private fun initVariables() {
+        type = intent.getIntExtra("type", 0)
+
         intent.getStringExtra("url")?.let {
             url = it
         }
