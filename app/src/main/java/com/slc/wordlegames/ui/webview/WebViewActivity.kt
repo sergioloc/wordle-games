@@ -1,6 +1,7 @@
 package com.slc.wordlegames.ui.webview
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
+import com.slc.wordlegames.ui.dialog.PasteDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -34,14 +36,10 @@ class WebViewActivity : AppCompatActivity() {
             setTitle(getString(R.string.did_you_win))
             setMessage(getString(R.string.save_result))
             setOnAcceptClickListener {
-                val i = Intent()
-                i.putExtra("result", "test")
-                setResult(RESULT_OK, i)
-                super.onBackPressed()
+                showPasteDialog(context, true)
             }
             setOnCancelClickListener {
-                setResult(RESULT_CANCELED, Intent())
-                super.onBackPressed()
+                showPasteDialog(context, false)
             }
             show()
         }
@@ -66,6 +64,20 @@ class WebViewActivity : AppCompatActivity() {
                 binding.loader.visibility = View.GONE
                 binding.webView.visibility = View.VISIBLE
             }
+        }
+    }
+
+    private fun showPasteDialog(context: Context, success: Boolean) {
+        PasteDialog(context).apply {
+            if (!success)
+                setTitle(R.string.next_time)
+            setOnAcceptClickListener {
+                val i = Intent()
+                i.putExtra("result", it)
+                setResult(RESULT_OK, i)
+                super.onBackPressed()
+            }
+            show()
         }
     }
 }
