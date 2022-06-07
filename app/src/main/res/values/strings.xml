@@ -13,4 +13,5 @@
     <string name="hide">Hide</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="not_history">There are no data of your games yet</string>
 </resources>

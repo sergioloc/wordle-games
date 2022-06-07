@@ -2,6 +2,7 @@ package com.slc.wordlegames.ui.history
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.databinding.ActivityHistoryBinding
@@ -38,7 +39,10 @@ class HistoryActivity : AppCompatActivity() {
     private fun initObservers() {
         viewModel.history.observe(this) {
             it.onSuccess { list ->
-                binding.rvHistory.adapter = HistoryAdapter(list)
+                if (list.isEmpty())
+                    binding.tvEmpty.visibility = View.VISIBLE
+                else
+                    binding.rvHistory.adapter = HistoryAdapter(list)
             }
         }
     }
