@@ -60,7 +60,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/chip_white"
         android:textColor="@color/grayDark"
-        android:text="@string/accept"/>
+        android:text="@string/yes"/>
 
     <Button
         android:id="@+id/btnCancel"
@@ -76,6 +76,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/chip_white"
         android:textColor="@color/grayDark"
-        android:text="@string/cancel"/>
+        android:text="@string/no"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

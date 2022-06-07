@@ -28,6 +28,13 @@ class ConfirmationDialog constructor(val context: Context): CustomDialog() {
         binding.tvMessage.text = message
     }
 
+    fun setOnCloseClickListener(onClickListener: () -> Unit) {
+        binding.ivClose.setOnClickListener {
+            onClickListener()
+            dialog.dismiss()
+        }
+    }
+
     fun setOnAcceptClickListener(onClickListener: () -> Unit) {
         binding.btnAccept.setOnClickListener {
             onClickListener()

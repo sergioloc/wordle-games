@@ -43,6 +43,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         val i = Intent(this, WebActivity::class.java)
         i.putExtra("type", game.id)
         i.putExtra("url", game.url)
+        i.putExtra("isComplete", game.status)
         startActivity(i)
     }
 

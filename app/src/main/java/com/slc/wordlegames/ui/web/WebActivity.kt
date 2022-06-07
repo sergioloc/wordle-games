@@ -24,6 +24,7 @@ class WebActivity : AppCompatActivity() {
     private val viewModel: WebViewModel by viewModels()
     private var url = ""
     private var type = 0
+    private var isComplete = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,21 +38,29 @@ class WebActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        ConfirmationDialog(this).apply {
-            setTitle(getString(R.string.did_you_win))
-            setMessage(getString(R.string.save_result))
-            setOnAcceptClickListener {
-                showPasteDialog(context, true)
+        if (isComplete)
+            super.onBackPressed()
+        else {
+            ConfirmationDialog(this).apply {
+                setTitle(getString(R.string.did_you_win))
+                setMessage(getString(R.string.save_result))
+                setOnCloseClickListener {
+                    super.onBackPressed()
+                }
+                setOnAcceptClickListener {
+                    showPasteDialog(context, true)
+                }
+                setOnCancelClickListener {
+                    showPasteDialog(context, false)
+                }
+                show()
             }
-            setOnCancelClickListener {
-                showPasteDialog(context, false)
-            }
-            show()
         }
     }
 
     private fun initVariables() {
         type = intent.getIntExtra("type", 0)
+        isComplete = intent.getBooleanExtra("isComplete", false)
 
         intent.getStringExtra("url")?.let {
             url = it
