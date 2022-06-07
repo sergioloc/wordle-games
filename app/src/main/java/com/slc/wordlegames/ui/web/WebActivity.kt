@@ -1,25 +1,29 @@
-package com.slc.wordlegames.ui.webview
+package com.slc.wordlegames.ui.web
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityWebViewBinding
+import com.slc.wordlegames.domain.model.History
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import com.slc.wordlegames.ui.dialog.PasteDialog
+import com.slc.wordlegames.utils.extensions.simpleFormat
 import dagger.hilt.android.AndroidEntryPoint
-
+import java.util.*
 
 @AndroidEntryPoint
-class WebViewActivity : AppCompatActivity() {
+class WebActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWebViewBinding
+    private val viewModel: WebViewModel by viewModels()
     private var url = ""
+    private var type = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,7 @@ class WebViewActivity : AppCompatActivity() {
         initVariables()
         initView()
         initListeners()
+        initObservers()
     }
 
     override fun onBackPressed() {
@@ -67,16 +72,27 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
+    private fun initObservers() {
+        viewModel.saved.observe(this) {
+            it.onSuccess {
+                super.onBackPressed()
+            }
+        }
+    }
+
     private fun showPasteDialog(context: Context, success: Boolean) {
         PasteDialog(context).apply {
             if (!success)
                 setTitle(getString(R.string.next_time))
             setOnAcceptClickListener {
-                val i = Intent()
-                i.putExtra("status", success)
-                i.putExtra("result", it)
-                setResult(RESULT_OK, i)
-                super.onBackPressed()
+                viewModel.saveHistory(
+                    History(
+                        type = type,
+                        status = success,
+                        result = it,
+                        date = Date().simpleFormat()
+                    )
+                )
             }
             show()
         }

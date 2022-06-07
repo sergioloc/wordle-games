@@ -1,16 +1,14 @@
 package com.slc.wordlegames.ui.menu
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.databinding.ActivityMenuBinding
 import com.slc.wordlegames.domain.model.Game
-import com.slc.wordlegames.ui.webview.WebViewActivity
+import com.slc.wordlegames.ui.web.WebActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,20 +40,14 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     }
 
     override fun onClickGame(game: Game) {
-        val i = Intent(this, WebViewActivity::class.java)
+        val i = Intent(this, WebActivity::class.java)
+        i.putExtra("type", game.id)
         i.putExtra("url", game.url)
-        activityResult.launch(i)
+        startActivity(i)
     }
 
     override fun onClickOptions(game: Game) {
         Toast.makeText(this, game.name, Toast.LENGTH_SHORT).show()
-    }
-
-    var activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == Activity.RESULT_OK) {
-            val status = it.data?.getBooleanExtra("status", false)
-            val result = it.data?.getStringExtra("result")
-        }
     }
 
 }
