@@ -1,15 +1,14 @@
 package com.slc.wordlegames.data
 
 import com.slc.wordlegames.R
+import com.slc.wordlegames.data.database.dao.HiddenDao
 import com.slc.wordlegames.data.database.dao.HistoryDao
-import com.slc.wordlegames.domain.model.Game
-import com.slc.wordlegames.domain.model.History
-import com.slc.wordlegames.domain.model.toData
-import com.slc.wordlegames.domain.model.toDomain
+import com.slc.wordlegames.domain.model.*
 import javax.inject.Inject
 
 class GamesRepository @Inject constructor(
-    private val historyDao: HistoryDao
+    private val historyDao: HistoryDao,
+    private val hiddenDao: HiddenDao
 ) {
 
     fun getGames(): List<Game> {
@@ -20,6 +19,8 @@ class GamesRepository @Inject constructor(
             Game(id = 4, name = "Framed", image = R.drawable.ic_movie, url = "https://framed.wtf/")
         )
     }
+
+    /** History DAO **/
 
     suspend fun getHistory(type: Int): List<History> {
         val response = historyDao.getHistory(type)
@@ -33,6 +34,16 @@ class GamesRepository @Inject constructor(
 
     suspend fun saveHistory(history: History) {
         historyDao.insertHistory(history.toData())
+    }
+
+    /** Hidden DAO **/
+
+    suspend fun getHidden(): List<Int> {
+        val response = hiddenDao.getHidden()
+        val result = ArrayList<Int>()
+         for (item in response)
+             result.add(item.id)
+        return result
     }
 
 }

@@ -26,4 +26,8 @@ object RoomModule {
     @Provides
     fun provideHistoryDao(db: LocalDatabase) = db.getHistoryDao()
 
+    @Singleton
+    @Provides
+    fun provideHiddenDao(db: LocalDatabase) = db.getHiddenDao()
+
 }
