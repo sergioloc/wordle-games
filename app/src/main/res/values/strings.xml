@@ -13,5 +13,7 @@
     <string name="hide">Hide</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="warning">Warning</string>
+    <string name="close_app">Do you want to close the app?</string>
     <string name="not_history">There are no data of your games yet</string>
 </resources>

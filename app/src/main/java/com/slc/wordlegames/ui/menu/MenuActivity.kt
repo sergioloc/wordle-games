@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityMenuBinding
 import com.slc.wordlegames.domain.model.Game
+import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import com.slc.wordlegames.ui.history.HistoryActivity
 import com.slc.wordlegames.ui.web.WebActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +18,8 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
     private lateinit var binding: ActivityMenuBinding
     private val viewModel: MenuViewModel by viewModels()
+
+    private var closeDialogOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,33 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     override fun onResume() {
         super.onResume()
         viewModel.getGames()
+    }
+
+    override fun onBackPressed() {
+        if (!closeDialogOpen) {
+            closeDialogOpen = true
+            ConfirmationDialog(this).apply {
+                setTitle(getString(R.string.warning))
+                setMessage(getString(R.string.close_app))
+                setOnCloseClickListener {
+                    closeDialogOpen = false
+                    dismiss()
+                }
+                setOnAcceptClickListener {
+                    super.onBackPressed()
+                }
+                setOnCancelClickListener {
+                    closeDialogOpen = false
+                    dismiss()
+                }
+                show()
+            }
+        }
+        else {
+            // TODO: no pasa por aquí cuando el dialog está abierto
+            super.onBackPressed()
+            closeDialogOpen = false
+        }
     }
 
     private fun initView() {
