@@ -1,10 +1,13 @@
 package com.slc.wordlegames.data
 
 import com.slc.wordlegames.R
+import com.slc.wordlegames.data.database.dao.HistoryDao
 import com.slc.wordlegames.domain.model.Game
 import javax.inject.Inject
 
-class GamesRepository @Inject constructor() {
+class GamesRepository @Inject constructor(
+    private val historyDao: HistoryDao
+) {
 
     fun getGames(): List<Game> {
         return listOf(
