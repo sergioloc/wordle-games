@@ -24,6 +24,10 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
         initView()
         initObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.getGames()
     }
 
@@ -43,7 +47,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         val i = Intent(this, WebActivity::class.java)
         i.putExtra("type", game.id)
         i.putExtra("url", game.url)
-        i.putExtra("isComplete", game.status)
+        i.putExtra("isComplete", game.status != null)
         startActivity(i)
     }
 
