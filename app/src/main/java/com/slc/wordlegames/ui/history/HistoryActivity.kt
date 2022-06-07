@@ -31,6 +31,7 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        binding.tvTitle.text = intent.getStringExtra("name")
         binding.rvHistory.layoutManager = LinearLayoutManager(this)
     }
 

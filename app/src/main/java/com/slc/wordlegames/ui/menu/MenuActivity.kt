@@ -60,6 +60,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         binding.bottomDialog.open()
         binding.bottomDialog.setOnHistoryClickListener {
             val i = Intent(this, HistoryActivity::class.java)
+            i.putExtra("name", game.name)
             i.putExtra("type", game.id)
             startActivity(i)
         }
