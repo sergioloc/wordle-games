@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.slc.wordlegames.databinding.ActivitySettingsBinding
-import com.slc.wordlegames.ui.HiddenActivity
+import com.slc.wordlegames.ui.hidden.HiddenActivity
 
 class SettingsActivity : AppCompatActivity() {
 

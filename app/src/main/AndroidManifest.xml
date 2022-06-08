@@ -35,7 +35,7 @@
             android:name=".ui.settings.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.HiddenActivity"
+            android:name=".ui.hidden.HiddenActivity"
             android:exported="false" />
     </application>
 
