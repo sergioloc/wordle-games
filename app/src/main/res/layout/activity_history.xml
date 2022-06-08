@@ -19,7 +19,7 @@
         android:layout_marginHorizontal="20dp"
         android:paddingVertical="20dp"
         android:gravity="center"
-        android:background="@drawable/chip_ripple_primary"
+        android:background="@drawable/chip_ripple_gray"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
