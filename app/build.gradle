@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -57,6 +59,11 @@ dependencies {
     // Dagger Hilt
     implementation 'com.google.dagger:hilt-android:2.42'
     kapt "com.google.dagger:hilt-android-compiler:2.42"
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
     // AdMob
     implementation 'com.google.android.gms:play-services-ads:21.0.0'

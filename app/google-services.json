@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705345021522",
+    "project_id": "wordlegames",
+    "storage_bucket": "wordlegames.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705345021522:android:674d09b3a2858f3785218b",
+        "android_client_info": {
+          "package_name": "com.slc.wordlegames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705345021522-e8ns30gimuse0m3m7qt0md0t2g1ktr8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOWotEBYOo9OF2xhdprWF9MaaKj2bvmjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705345021522-e8ns30gimuse0m3m7qt0md0t2g1ktr8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
