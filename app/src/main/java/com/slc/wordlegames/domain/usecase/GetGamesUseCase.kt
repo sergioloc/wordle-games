@@ -18,7 +18,7 @@ class GetGamesUseCase @Inject constructor(
         result.addAll(repository.getGlobalGames())
 
         if (isSpanish)
-            result[3].name = "Wordle (EN)"
+            result[4].name = "Wordle (EN)"
 
         return result
     }
