@@ -63,7 +63,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     private fun initObservers() {
         viewModel.games.observe(this) {
             it.onSuccess { list ->
-                binding.rvGames.adapter = MenuAdapter(list, this)
+                binding.rvGames.adapter = MenuAdapter(list, this, true)
             }
         }
         viewModel.hide.observe(this) {

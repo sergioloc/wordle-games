@@ -1,6 +1,7 @@
 package com.slc.wordlegames.ui.menu
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.slc.wordlegames.R
 import com.slc.wordlegames.domain.model.Game
 
-class MenuAdapter(private var games: List<Game>, private val listener: OnGameClickListener): RecyclerView.Adapter<MenuAdapter.UserViewHolder>() {
+class MenuAdapter(private var games: List<Game>, private val listener: OnGameClickListener, private val showOptions: Boolean): RecyclerView.Adapter<MenuAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         return UserViewHolder(LayoutInflater.from(parent.context), parent)
@@ -39,6 +40,11 @@ class MenuAdapter(private var games: List<Game>, private val listener: OnGameCli
         holder.ivMore.setOnClickListener {
             listener.onClickOptions(g)
         }
+
+        if (showOptions)
+            holder.ivMore.visibility = View.VISIBLE
+        else
+            holder.ivMore.visibility = View.GONE
 
     }
 
