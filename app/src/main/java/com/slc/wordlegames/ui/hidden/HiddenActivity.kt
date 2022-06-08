@@ -20,6 +20,7 @@ class HiddenActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         binding = ActivityHiddenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -27,6 +28,12 @@ class HiddenActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
         initObservers()
 
         viewModel.getHiddenGames()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+
     }
 
     private fun initView() {
