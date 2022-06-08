@@ -16,6 +16,7 @@ class ConfirmationDialog constructor(val context: Context): CustomDialog() {
     init {
         setView(context, binding.root)
 
+        binding.btnCancel.setOnClickListener { dialog.dismiss() }
         binding.ivClose.setOnClickListener { dialog.dismiss() }
     }
 
