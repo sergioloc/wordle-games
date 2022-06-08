@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityHiddenBinding
 import com.slc.wordlegames.domain.model.Game
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
@@ -46,6 +47,8 @@ class HiddenActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
     override fun onClickGame(game: Game) {
         ConfirmationDialog(this).apply {
+            setTitle(game.name)
+            setMessage(getString(R.string.show_game))
             setOnAcceptClickListener {
                 viewModel.setGameHidden(game.id, true)
             }

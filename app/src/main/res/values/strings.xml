@@ -1,21 +1,35 @@
 <resources>
+    <!-- Common -->
     <string name="app_name">Wordle Games</string>
-    <string name="settings">Settings</string>
-    <string name="hidden_games">Hidden games</string>
-    <string name="did_you_win">Did you win?</string>
-    <string name="save_result">We will save your result to create an historical and metrics.</string>
-    <string name="congrats">Congrats!</string>
-    <string name="next_time">Oh… Next time</string>
-    <string name="paste_result">Paste your result</string>
-    <string name="accept">Accept</string>
-    <string name="cancel">Cancel</string>
-    <string name="paste">Paste</string>
-    <string name="save">Save</string>
+
+    <!-- Menu -->
     <string name="history">History</string>
     <string name="hide">Hide</string>
+    <string name="close_app">Do you want to close the app?</string>
+
+    <!-- Web -->
+    <string name="did_you_win">Did you win?</string>
+    <string name="congrats">Congrats!</string>
+    <string name="next_time">Oh… Next time</string>
+    <string name="save_result">We will save your result to create an historical and metrics.</string>
+    <string name="paste_result">Paste your result</string>
+    <string name="paste">Paste</string>
+    <string name="save">Save</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="hidden_games">Hidden games</string>
+
+    <!-- History -->
+    <string name="not_history">There are no data of your games yet</string>
+
+    <!-- Hidden -->
+    <string name="not_hidden">There are no hidden games</string>
+    <string name="show_game">Do you want to show this game?</string>
+
+    <!-- Dialog -->
+    <string name="warning">Warning</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="warning">Warning</string>
-    <string name="close_app">Do you want to close the app?</string>
-    <string name="not_history">There are no data of your games yet</string>
+
 </resources>
