@@ -10,6 +10,7 @@ import com.slc.wordlegames.databinding.ActivityMenuBinding
 import com.slc.wordlegames.domain.model.Game
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import com.slc.wordlegames.ui.history.HistoryActivity
+import com.slc.wordlegames.ui.settings.SettingsActivity
 import com.slc.wordlegames.ui.web.WebActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,6 +29,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
         initView()
         initObservers()
+        initButtons()
     }
 
     override fun onResume() {
@@ -68,6 +70,12 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
             it.onSuccess {
                 viewModel.getGames()
             }
+        }
+    }
+
+    private fun initButtons() {
+        binding.ivSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
     }
 
