@@ -2,6 +2,7 @@ package com.slc.wordlegames.ui.hidden
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slc.wordlegames.R
@@ -35,6 +36,9 @@ class HiddenActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     private fun initObservers() {
         viewModel.games.observe(this) {
             it.onSuccess { list ->
+                if (list.isEmpty())
+                    binding.tvEmpty.visibility = View.VISIBLE
+
                 binding.rvHidden.adapter = MenuAdapter(list, this, false)
             }
         }
