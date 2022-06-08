@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import com.slc.wordlegames.databinding.DialogConfirmationBinding
 
+
 /** Shows a simple dialog with Accept/Cancel buttons **/
 
 class ConfirmationDialog constructor(val context: Context): CustomDialog() {
@@ -32,6 +33,9 @@ class ConfirmationDialog constructor(val context: Context): CustomDialog() {
         binding.ivClose.setOnClickListener {
             onClickListener()
             dialog.dismiss()
+        }
+        dialog.setOnCancelListener {
+            onClickListener()
         }
     }
 

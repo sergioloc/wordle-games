@@ -36,29 +36,21 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     }
 
     override fun onBackPressed() {
-        if (!closeDialogOpen) {
-            closeDialogOpen = true
-            ConfirmationDialog(this).apply {
-                setTitle(getString(R.string.warning))
-                setMessage(getString(R.string.close_app))
-                setOnCloseClickListener {
-                    closeDialogOpen = false
-                    dismiss()
-                }
-                setOnAcceptClickListener {
-                    super.onBackPressed()
-                }
-                setOnCancelClickListener {
-                    closeDialogOpen = false
-                    dismiss()
-                }
-                show()
+        ConfirmationDialog(this).apply {
+            setTitle(getString(R.string.warning))
+            setMessage(getString(R.string.close_app))
+            setOnCloseClickListener {
+                closeDialogOpen = false
+                dismiss()
             }
-        }
-        else {
-            // TODO: no pasa por aquí cuando el dialog está abierto
-            super.onBackPressed()
-            closeDialogOpen = false
+            setOnAcceptClickListener {
+                super.onBackPressed()
+            }
+            setOnCancelClickListener {
+                closeDialogOpen = false
+                dismiss()
+            }
+            show()
         }
     }
 
