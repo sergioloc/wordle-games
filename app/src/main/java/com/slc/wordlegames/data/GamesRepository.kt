@@ -12,12 +12,22 @@ class GamesRepository @Inject constructor(
     private val hiddenDao: HiddenDao
 ) {
 
-    fun getGames(): List<Game> {
+    fun getSpanishGames(): List<Game> {
         return listOf(
-            Game(id = 1, name = "Wordle", image = R.drawable.ic_keyboard, url = "https://wordle.danielfrg.com/"),
-            Game(id = 2, name = "Worldle", image = R.drawable.ic_world, url = "https://worldle.teuteuf.fr/"),
-            Game(id = 3, name = "Heardle", image = R.drawable.ic_music, url = "https://www.heardle.app/"),
-            Game(id = 4, name = "Framed", image = R.drawable.ic_movie, url = "https://framed.wtf/")
+            Game(id = 1, name = "Wordle (ES)", image = R.drawable.ic_keyboard, url = "https://wordle.danielfrg.com/"),
+            Game(id = 1, name = "Tildes", image = R.drawable.ic_tilde, url = "https://wordle.danielfrg.com/tildes/index.html"),
+            Game(id = 1, name = "Científico", image = R.drawable.ic_science, url = "https://wordle.danielfrg.com/ciencia/index.html"),
+        )
+    }
+
+    fun getGlobalGames(): List<Game> {
+        return listOf(
+            Game(id = 1, name = "Wordle", image = R.drawable.ic_keyboard, url = "https://www.nytimes.com/games/wordle/index.html"),
+            Game(id = 1, name = "Worldle", image = R.drawable.ic_world, url = "https://worldle.teuteuf.fr/"),
+            Game(id = 1, name = "Flaggle", image = R.drawable.ic_flag, url = "https://ducc.pythonanywhere.com/flaggle/"),
+            Game(id = 1, name = "Mathler", image = R.drawable.ic_math, url = "https://www.mathler.com/"),
+            Game(id = 1, name = "Nerdle", image = R.drawable.ic_function, url = "https://nerdlegame.com/"),
+            Game(id = 1, name = "Poeltl", image = R.drawable.ic_basketball, url = "https://poeltl.dunk.town/"),
         )
     }
 

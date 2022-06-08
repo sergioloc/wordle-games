@@ -8,6 +8,19 @@ class GetGamesUseCase @Inject constructor(
     private val repository: GamesRepository
 ) {
 
-    operator fun invoke(): List<Game> = repository.getGames()
+    operator fun invoke(): List<Game> {
+        val result = ArrayList<Game>()
+
+        var isSpanish = true
+
+        if (isSpanish)
+            result.addAll(repository.getSpanishGames())
+        result.addAll(repository.getGlobalGames())
+
+        if (isSpanish)
+            result[3].name = "Wordle (EN)"
+
+        return result
+    }
 
 }
