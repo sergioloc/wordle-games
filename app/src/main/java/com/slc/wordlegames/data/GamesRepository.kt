@@ -28,7 +28,7 @@ class GamesRepository @Inject constructor(
             Game(id = 1, name = "Wordle (ES)", image = R.drawable.ic_keyboard, url = "https://wordle.danielfrg.com/"),
             Game(id = 2, name = "Tildes", image = R.drawable.ic_tilde, url = "https://wordle.danielfrg.com/tildes/index.html"),
             Game(id = 3, name = "Científico", image = R.drawable.ic_science, url = "https://wordle.danielfrg.com/ciencia/index.html"),
-            Game(id = 4, name = "Contrareloj", image = R.drawable.ic_science, url = "https://wordle.danielfrg.com/contrarreloj/index.html"),
+            Game(id = 4, name = "Contrareloj", image = R.drawable.ic_timer, url = "https://wordle.danielfrg.com/contrarreloj/index.html"),
         )
     }
 
