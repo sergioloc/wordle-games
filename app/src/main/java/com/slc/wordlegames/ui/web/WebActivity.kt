@@ -8,6 +8,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityWebBinding
@@ -81,6 +82,7 @@ class WebActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView, url: String) {
                 binding.loader.visibility = View.GONE
                 binding.webView.visibility = View.VISIBLE
+                binding.root.background = ContextCompat.getDrawable(applicationContext, R.color.white)
             }
         }
     }

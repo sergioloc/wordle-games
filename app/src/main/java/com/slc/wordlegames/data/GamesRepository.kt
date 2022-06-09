@@ -17,9 +17,10 @@ class GamesRepository @Inject constructor(
             Game(id = 10, name = "Wordle", image = R.drawable.ic_keyboard, url = "https://www.nytimes.com/games/wordle/index.html"),
             Game(id = 11, name = "Worldle", image = R.drawable.ic_world, url = "https://worldle.teuteuf.fr/"),
             Game(id = 12, name = "Flaggle", image = R.drawable.ic_flag, url = "https://ducc.pythonanywhere.com/flaggle/"),
-            Game(id = 13, name = "Mathler", image = R.drawable.ic_math, url = "https://www.mathler.com/"),
-            Game(id = 14, name = "Nerdle", image = R.drawable.ic_function, url = "https://nerdlegame.com/"),
-            Game(id = 15, name = "Poeltl", image = R.drawable.ic_basketball, url = "https://poeltl.dunk.town/"),
+            Game(id = 13, name = "Framed", image = R.drawable.ic_movie, url = "https://framed.wtf/"),
+            Game(id = 14, name = "Mathler", image = R.drawable.ic_math, url = "https://www.mathler.com/"),
+            Game(id = 15, name = "Nerdle", image = R.drawable.ic_function, url = "https://nerdlegame.com/"),
+            Game(id = 16, name = "Poeltl", image = R.drawable.ic_basketball, url = "https://poeltl.dunk.town/"),
         )
     }
 
