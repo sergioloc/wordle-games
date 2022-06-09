@@ -24,6 +24,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
     private var closeDialogOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)

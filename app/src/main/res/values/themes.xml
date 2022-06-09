@@ -5,4 +5,11 @@
         <item name="colorPrimaryDark">@color/grayDark</item>
         <item name="colorAccent">@color/white</item>
     </style>
+
+    <!-- Splash theme -->
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor" >@color/grayDark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>
