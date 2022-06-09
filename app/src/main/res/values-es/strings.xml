@@ -1,0 +1,35 @@
+<resources>
+    <!-- Common -->
+    <string name="app_name">Wordle Games</string>
+
+    <!-- Menu -->
+    <string name="history">Historial</string>
+    <string name="hide">Ocultar</string>
+    <string name="close_app">¿Deseas cerrar la aplicaciíon?</string>
+
+    <!-- Web -->
+    <string name="did_you_win">¿Has ganado?</string>
+    <string name="congrats">¡Enhorabuena!</string>
+    <string name="next_time">Oh… Lastima</string>
+    <string name="save_result">Guardaremos tus resultados para mostrar un historial y crear métricas.</string>
+    <string name="paste_result">Pega tu resultado.</string>
+    <string name="paste">Pegar</string>
+    <string name="save">Guardar</string>
+
+    <!-- Settings -->
+    <string name="settings">Ajustes</string>
+    <string name="hidden_games">Juegos ocultos</string>
+
+    <!-- History -->
+    <string name="not_history">Aún no hay información del juego</string>
+
+    <!-- Hidden -->
+    <string name="not_hidden">No se ha ocultado ningún juego</string>
+    <string name="show_game">¿Deseas mostrar este juego?</string>
+
+    <!-- Dialog -->
+    <string name="warning">Aviso</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+
+</resources>
