@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityHiddenBinding
 import com.slc.wordlegames.domain.model.Game
@@ -38,6 +39,7 @@ class HiddenActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
     private fun initView() {
         binding.rvHidden.layoutManager = LinearLayoutManager(this)
+        binding.adBanner.loadAd(AdRequest.Builder().build())
     }
 
     private fun initObservers() {

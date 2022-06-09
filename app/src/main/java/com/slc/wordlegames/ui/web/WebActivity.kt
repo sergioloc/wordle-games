@@ -8,8 +8,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.R
-import com.slc.wordlegames.databinding.ActivityWebViewBinding
+import com.slc.wordlegames.databinding.ActivityWebBinding
 import com.slc.wordlegames.domain.model.History
 import com.slc.wordlegames.ui.dialog.ConfirmationDialog
 import com.slc.wordlegames.ui.dialog.PasteDialog
@@ -20,7 +21,7 @@ import java.util.*
 @AndroidEntryPoint
 class WebActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityWebViewBinding
+    private lateinit var binding: ActivityWebBinding
     private val viewModel: WebViewModel by viewModels()
     private var url = ""
     private var type = 0
@@ -28,7 +29,7 @@ class WebActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWebViewBinding.inflate(layoutInflater)
+        binding = ActivityWebBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initVariables()
@@ -72,6 +73,7 @@ class WebActivity : AppCompatActivity() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.domStorageEnabled = true
         binding.webView.loadUrl(url)
+        binding.adBanner.loadAd(AdRequest.Builder().build())
     }
 
     private fun initListeners() {

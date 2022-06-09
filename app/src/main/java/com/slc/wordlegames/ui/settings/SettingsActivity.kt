@@ -3,6 +3,7 @@ package com.slc.wordlegames.ui.settings
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivitySettingsBinding
 import com.slc.wordlegames.ui.hidden.HiddenActivity
@@ -18,12 +19,17 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initView()
         initButtons()
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.idle, R.anim.slide_out_bottom_slow)
+    }
+
+    private fun initView() {
+        binding.adBanner.loadAd(AdRequest.Builder().build())
     }
 
     private fun initButtons() {

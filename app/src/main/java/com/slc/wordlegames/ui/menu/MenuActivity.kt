@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.R
 import com.slc.wordlegames.databinding.ActivityMenuBinding
 import com.slc.wordlegames.domain.model.Game
@@ -58,6 +59,7 @@ class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
 
     private fun initView() {
         binding.rvGames.layoutManager = LinearLayoutManager(this)
+        binding.adBanner.loadAd(AdRequest.Builder().build())
     }
 
     private fun initObservers() {

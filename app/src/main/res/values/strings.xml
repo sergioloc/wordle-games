@@ -32,4 +32,13 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
+    <!-- Ads -->
+    <string name="banner_menu" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_web" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_history" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_settings" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_hidden" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+    <!-- Dev: ca-app-pub-3940256099942544/6300978111 -->
+
 </resources>

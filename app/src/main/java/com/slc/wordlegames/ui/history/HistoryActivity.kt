@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.slc.wordlegames.databinding.ActivityHistoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +35,7 @@ class HistoryActivity : AppCompatActivity() {
     private fun initView() {
         binding.tvTitle.text = intent.getStringExtra("name")
         binding.rvHistory.layoutManager = LinearLayoutManager(this)
+        binding.adBanner.loadAd(AdRequest.Builder().build())
     }
 
     private fun initObservers() {
