@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "705345021522",
-    "project_id": "wordlegames",
-    "storage_bucket": "wordlegames.appspot.com"
+    "project_number": "921411125560",
+    "project_id": "wordme-app",
+    "storage_bucket": "wordme-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:705345021522:android:674d09b3a2858f3785218b",
+        "mobilesdk_app_id": "1:921411125560:android:b567d7e0fdabb8e5e501cd",
         "android_client_info": {
-          "package_name": "com.slc.wordlegames"
+          "package_name": "com.slc.wordme"
         }
       },
       "oauth_client": [
         {
-          "client_id": "705345021522-e8ns30gimuse0m3m7qt0md0t2g1ktr8b.apps.googleusercontent.com",
+          "client_id": "921411125560-papero1it2onka0fimdj486u8avoc2in.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDOWotEBYOo9OF2xhdprWF9MaaKj2bvmjk"
+          "current_key": "AIzaSyACJwuKtNV6f7B1zizs-ir7WA9Rj3u9S50"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "705345021522-e8ns30gimuse0m3m7qt0md0t2g1ktr8b.apps.googleusercontent.com",
+              "client_id": "921411125560-papero1it2onka0fimdj486u8avoc2in.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

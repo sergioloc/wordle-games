@@ -1,6 +1,6 @@
 <resources>
     <!-- Common -->
-    <string name="app_name">Wordle Games</string>
+    <string name="app_name" translatable="false">Wordme</string>
 
     <!-- Menu -->
     <string name="history">History</string>

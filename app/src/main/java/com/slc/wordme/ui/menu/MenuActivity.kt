@@ -1,0 +1,106 @@
+package com.slc.wordme.ui.menu
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.slc.wordme.R
+import com.slc.wordme.databinding.ActivityMenuBinding
+import com.slc.wordme.domain.model.Game
+import com.slc.wordme.ui.dialog.ConfirmationDialog
+import com.slc.wordme.ui.history.HistoryActivity
+import com.slc.wordme.ui.settings.SettingsActivity
+import com.slc.wordme.ui.web.WebActivity
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class MenuActivity : AppCompatActivity(), MenuAdapter.OnGameClickListener {
+
+    private lateinit var binding: ActivityMenuBinding
+    private val viewModel: MenuViewModel by viewModels()
+
+    private var closeDialogOpen = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+        super.onCreate(savedInstanceState)
+        binding = ActivityMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        initView()
+        initObservers()
+        initButtons()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getGames()
+    }
+
+    override fun onBackPressed() {
+        ConfirmationDialog(this).apply {
+            setTitle(getString(R.string.warning))
+            setMessage(getString(R.string.close_app))
+            setOnCloseClickListener {
+                closeDialogOpen = false
+                dismiss()
+            }
+            setOnAcceptClickListener {
+                super.onBackPressed()
+            }
+            setOnCancelClickListener {
+                closeDialogOpen = false
+                dismiss()
+            }
+            show()
+        }
+    }
+
+    private fun initView() {
+        binding.rvGames.layoutManager = LinearLayoutManager(this)
+        binding.adBanner.loadAd(AdRequest.Builder().build())
+    }
+
+    private fun initObservers() {
+        viewModel.games.observe(this) {
+            it.onSuccess { list ->
+                binding.rvGames.adapter = MenuAdapter(list, this, true)
+            }
+        }
+        viewModel.hide.observe(this) {
+            it.onSuccess {
+                viewModel.getGames()
+            }
+        }
+    }
+
+    private fun initButtons() {
+        binding.ivSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+    }
+
+    override fun onClickGame(game: Game) {
+        val i = Intent(this, WebActivity::class.java)
+        i.putExtra("type", game.id)
+        i.putExtra("url", game.url)
+        i.putExtra("isComplete", game.status != null)
+        startActivity(i)
+    }
+
+    override fun onClickOptions(game: Game) {
+        binding.bottomDialog.open()
+        binding.bottomDialog.setOnHistoryClickListener {
+            val i = Intent(this, HistoryActivity::class.java)
+            i.putExtra("name", game.name)
+            i.putExtra("type", game.id)
+            startActivity(i)
+        }
+        binding.bottomDialog.setOnHideClickListener {
+            viewModel.setGameHidden(game.id, false)
+        }
+    }
+
+}

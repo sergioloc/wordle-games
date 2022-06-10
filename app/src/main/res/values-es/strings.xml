@@ -1,7 +1,4 @@
 <resources>
-    <!-- Common -->
-    <string name="app_name">Wordle Games</string>
-
     <!-- Menu -->
     <string name="history">Historial</string>
     <string name="hide">Ocultar</string>

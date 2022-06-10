@@ -61,7 +61,7 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_menu"/>
 
-    <com.slc.wordlegames.ui.dialog.BottomDialog
+    <com.slc.wordme.ui.dialog.BottomDialog
         android:id="@+id/bottomDialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

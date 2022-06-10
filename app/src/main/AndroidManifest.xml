@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.slc.wordlegames" >
+    package="com.slc.wordme" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".WordleGamesApp"
+        android:name=".WordmeApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
